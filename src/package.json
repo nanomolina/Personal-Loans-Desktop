@@ -1,0 +1,16 @@
+{
+  "name": "personal-loans-desktop",
+  "version": "1.0.0",
+  "description": "A minimal Loan application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/nanomolina/Personal-Loans-Desktop.git",
+  "keywords": [],
+  "author": "Nano Molina",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^1.4.7"
+  }
+}
