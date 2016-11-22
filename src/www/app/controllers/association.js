@@ -12,7 +12,16 @@ function AssociationCtrl(Association, $location, $mdDialog, $scope, $mdToast) {
     $scope.master.toolbar = {title: 'Asociaciones', icon: 'content/img/business/cityscape.svg'}
     vm.name;
     vm.description;
-    vm.associations = [];
+    vm.associations = [
+      {
+        "id": 3,
+        "name": "Pymobi",
+        "description": "A software enterprise factory",
+        "founder": 3,
+        "founder_name": "Javier David Verblud",
+        "date_created": "2016-11-14"
+      }
+    ];
     vm.general_loading = false;
     vm.create_loading = false;
     vm.getTotalAssociations = getTotalAssociations;

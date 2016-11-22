@@ -4,9 +4,9 @@ angular
   .module('entity')
   .factory('Revenue', Revenue);
 
-Revenue.$inject = ['$http', '$cookies'];
+Revenue.$inject = ['$http'];
 
-function Revenue($http, $cookies) {
+function Revenue($http) {
   var service = {
     getList: getList,
     getTotal: getTotal,
@@ -17,21 +17,11 @@ function Revenue($http, $cookies) {
 
   // GET - LIST
   function getList(id, query) {
-    return $http.get(
-      "entity/associations/"+id+"/revenue/",
-      {
-        params: query,
-      }
-    )
+    return $http.get("entity/associations/"+id+"/revenue/");
   }
 
   // GET - TOTAL
   function getTotal(id, query) {
-    return $http.get(
-      "entity/associations/"+id+"/revenue/total/",
-      {
-        params: query,
-      }
-    )
+    return $http.get("entity/associations/"+id+"/revenue/total/");
   }
 }

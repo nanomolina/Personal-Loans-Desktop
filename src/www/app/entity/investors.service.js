@@ -4,7 +4,7 @@ angular
   .module('entity')
   .factory('Investor', Investor);
 
-Investor.$inject = ['$http', '$cookies'];
+Investor.$inject = ['$http'];
 
 function Investor($http, $cookies) {
   var service = {

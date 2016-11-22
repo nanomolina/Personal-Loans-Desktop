@@ -4,9 +4,9 @@ angular
   .module('entity')
   .factory('Investment', Investment);
 
-Investment.$inject = ['$http', '$cookies'];
+Investment.$inject = ['$http'];
 
-function Investment($http, $cookies) {
+function Investment($http) {
   var service = {
     getList: getList,
     getTotal: getTotal,
@@ -41,39 +41,22 @@ function Investment($http, $cookies) {
 
   // OPTIONS
   function getOptions(id) {
-    return $http(
-      {method: "OPTIONS", url: "entity/associations/"+id+"/investments/"}
-    )
+    return $http({method: "OPTIONS", url: "entity/associations/"+id+"/investments/"});
   }
 
   // POST - CREATE
   function create(id, data) {
-    return $http.post(
-      "entity/associations/"+id+"/investments/",
-      data,
-      {
-        withCredentials: true,
-        headers: {'X-CSRFToken': $cookies.get('csrftoken')},
-      }
-    )
+    return $http.post("entity/associations/"+id+"/investments/", data);
   }
 
   //  GET - RETRIEVE
   function get(assoc_id, inv_id) {
-    return $http.get(
-      "entity/associations/"+assoc_id+"/investment/"+inv_id+"/"
-    )
+    return $http.get("entity/associations/"+assoc_id+"/investment/"+inv_id+"/");
   }
 
   // DELETE - DESTROY
   function remove(assoc_id, inv_id) {
-    return $http.delete(
-      "entity/associations/"+assoc_id+"/investment/"+inv_id+"/",
-      {
-        withCredentials: true,
-        headers: {'X-CSRFToken': $cookies.get('csrftoken')},
-      }
-    )
+    return $http.delete("entity/associations/"+assoc_id+"/investment/"+inv_id+"/");
   }
 
 }

@@ -67,7 +67,7 @@
 
   <!-- Container #1 (see wireframe) -->
   <md-toolbar layout="row" class="md-toolbar-tools md-whiteframe-6dp md-hue-2">
-    <md-button class="menu md-icon-button" ng-click="vm.toggleLeftMenu()"aria-label="menu">
+    <md-button class="menu md-icon-button" ng-click="master.toggleLeftMenu()"aria-label="menu">
       <md-icon md-svg-src="content/img/business/menu-lines.svg" aria-hidden="true"></md-icon>
     </md-button>
     <h1><span ng-if="vm.menu.length">{{ vm.association.name }} - </span>{{vm.toolbar.title }}</h1>
@@ -78,7 +78,7 @@
   <!-- Container #2 -->
   <div flex layout="row">
     <!-- Container #3 -->
-    <div ng-include="menu.html"></div>
+    <div ng-include="'app/menu.html'"></div>
 
     <!-- Container #4 -->
     <md-content flex id="content" class="color-bkg">
