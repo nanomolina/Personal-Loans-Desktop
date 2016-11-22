@@ -24,88 +24,32 @@ function materialDatepicker($mdDateLocaleProvider) {
 function routes($routeProvider) {
   $routeProvider
   .when('/', {
-    templateUrl: 'entity/templates/association.html',
-    resolve: {
-      authenticated: ['authService', function(authService){
-        return authService.getUser();
-      }],
-    }
-  })
-  .when('/login', {
-    templateUrl: 'core/login.html',
-  })
-  .when('/logout', {
-    templateUrl: 'core/logout.html',
-    resolve: {
-      authenticated: ['authService', function(authService){
-        return authService.getUser();
-      }],
-    }
+    templateUrl: 'app/entity/templates/association.html'
   })
   // ENTITY
   .when('/investors', {
-    templateUrl: 'entity/templates/investors.html',
-    resolve: {
-      authenticated: ['authService', function(authService){
-        return authService.getUser();
-      }],
-    }
+    templateUrl: 'app/entity/templates/investors.html',
   })
   .when('/association', {
-    templateUrl: 'entity/templates/association.html',
-    resolve: {
-      authenticated: ['authService', function(authService){
-        return authService.getUser();
-      }],
-    }
+    templateUrl: 'app/entity/templates/association.html',
   })
   .when('/association/:associationId/console', {
-    templateUrl: 'entity/templates/console.html',
-    resolve: {
-      authenticated: ['authService', function(authService){
-        return authService.getUser();
-      }],
-    }
+    templateUrl: 'app/entity/templates/console.html',
   })
   .when('/association/:associationId/members', {
-    templateUrl: 'entity/templates/members/investors.html',
-    resolve: {
-      authenticated: ['authService', function(authService){
-        return authService.getUser();
-      }],
-    }
+    templateUrl: 'app/entity/templates/members/investors.html',
   })
   .when('/association/:associationId/loans', {
-    templateUrl: 'entity/templates/loan/investments.html',
-    resolve: {
-      authenticated: ['authService', function(authService){
-        return authService.getUser();
-      }],
-    }
+    templateUrl: 'app/entity/templates/loan/investments.html',
   })
   .when('/association/:associationId/monthly_resume', {
-    templateUrl: 'entity/templates/loan/monthly_resume.html',
-    resolve: {
-      authenticated: ['authService', function(authService){
-        return authService.getUser();
-      }],
-    }
+    templateUrl: 'app/entity/templates/loan/monthly_resume.html',
   })
   .when('/association/:associationId/revenue', {
-    templateUrl: 'entity/templates/loan/revenue.html',
-    resolve: {
-      authenticated: ['authService', function(authService){
-        return authService.getUser();
-      }],
-    }
+    templateUrl: 'app/entity/templates/loan/revenue.html',
   })
   .when('/association/:associationId/config', {
-    templateUrl: 'entity/templates/config/association.html',
-    resolve: {
-      authenticated: ['authService', function(authService){
-        return authService.getUser();
-      }],
-    }
+    templateUrl: 'app/entity/templates/config/association.html',
   })
   .otherwise({
     redirectTo: '/'

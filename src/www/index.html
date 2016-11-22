@@ -14,6 +14,9 @@
       background: url(content/img/ripple-red.svg) center no-repeat #fff;
     }
   </style>
+  <link rel="stylesheet" href="lib/angular-material/angular-material.min.css">
+  <link rel="stylesheet" href="content/css/main.css">
+  <link rel="stylesheet" href="content/css/investors.css">
 
   <!-- Angular Material style sheet -->
   <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
@@ -39,8 +42,6 @@
 
   <!-- Mixin Controllers (bad) -->
   <script src="app/master.js"></script>
-  <script src="app/login.js"></script>
-  <script src="app/logout.js"></script>
 
   <script src="app/controllers/association.js"></script>
   <script src="app/controllers/config.js"></script>
@@ -51,19 +52,27 @@
   <script src="app/controllers/revenue.js"></script>
 
   <!-- Entity -->
+  <script src="app/entity/entity.js"></script>
+
+  <!-- Mixin services (not so bad) -->
+  <script src="app/entity/association.service.js"></script>
+  <script src="app/entity/investment.service.js"></script>
+  <script src="app/entity/investors.service.js"></script>
+  <script src="app/entity/revenue.service.js"></script>
+
 
 </head>
 <body ng-app="personalLoans" ng-controller="MasterCtrl as master" layout="column">
-  <div class="se-pre-con" ng-if="master.loading"></div>
+  <div class="se-pre-con" ng-if="vm.loading"></div>
 
   <!-- Container #1 (see wireframe) -->
   <md-toolbar layout="row" class="md-toolbar-tools md-whiteframe-6dp md-hue-2">
-    <md-button class="menu md-icon-button" ng-click="master.toggleLeftMenu()"aria-label="menu">
-      <md-icon md-svg-src="static/img/business/menu-lines.svg" aria-hidden="true"></md-icon>
+    <md-button class="menu md-icon-button" ng-click="vm.toggleLeftMenu()"aria-label="menu">
+      <md-icon md-svg-src="content/img/business/menu-lines.svg" aria-hidden="true"></md-icon>
     </md-button>
-    <h1><span ng-if="master.menu.length">{{ master.association.name }} - </span>{{master.toolbar.title }}</h1>
+    <h1><span ng-if="vm.menu.length">{{ vm.association.name }} - </span>{{vm.toolbar.title }}</h1>
     <span flex></span>
-    <md-icon md-svg-src="{{master.toolbar.icon}}" aria-hidden="true"></md-icon>
+    <md-icon md-svg-src="{{vm.toolbar.icon}}" aria-hidden="true"></md-icon>
   </md-toolbar>
 
   <!-- Container #2 -->
