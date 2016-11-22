@@ -32,7 +32,7 @@ function ConfigCtrl(Association, $scope, $routeParams, $mdToast, $mdDialog) {
         preserveScope: true,
         clickOutsideToClose: true,
         fullscreen: true,
-        templateUrl: 'entity/_edit_association.html',
+        templateUrl: 'app/entity/templates/_edit_association.html',
       });
     }
 
