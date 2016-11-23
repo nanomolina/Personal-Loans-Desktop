@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>example</title>
+  <style media="screen">
+    .se-pre-con {
+      position: fixed;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      background: url(content/img/ripple-red.svg) center no-repeat #fff;
+    }
+  </style>
+  <link rel="stylesheet" href="lib/angular-material/angular-material.min.css">
+  <link rel="stylesheet" href="lib/angular-material-data-table/dist/md-data-table.min.css">
+  <link rel="stylesheet" href="content/css/main.css">
+  <link rel="stylesheet" href="content/css/investors.css">
+
+  <!-- Angular Material style sheet -->
+  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+
+  <!-- Main dependencies -->
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="lib/moment/min/moment.min.js"></script>
+  <script src="lib/angular-i18n/angular-locale_es-ar.js"></script>
+  <script src="lib/angular-animate/angular-animate.min.js"></script>
+  <script src="lib/angular-aria/angular-aria.min.js"></script>
+  <script src="lib/angular-messages/angular-messages.min.js"></script>
+  <script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
+  <script src="lib/angular-route/angular-route.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="lib/angular-material/angular-material.min.js"></script>
+  <script src="lib/angular-material-data-table/dist/md-data-table.min.js"></script>
+  <script src="lib/angular-resource/angular-resource.min.js"></script>
+
+  <!-- Core -->
+  <script src="app/app.main.js"></script>
+  <script src="app/app.config.js"></script>
+
+  <!-- Mixin Controllers (bad) -->
+  <script src="app/master.js"></script>
+
+  <script src="app/controllers/association.js"></script>
+  <script src="app/controllers/config.js"></script>
+  <script src="app/controllers/console.js"></script>
+  <script src="app/controllers/investment.js"></script>
+  <script src="app/controllers/investors.js"></script>
+  <script src="app/controllers/monthly_resume.js"></script>
+  <script src="app/controllers/revenue.js"></script>
+
+  <!-- Entity -->
+  <script src="app/entity/entity.js"></script>
+
+  <!-- Mixin services (not so bad) -->
+  <script src="app/entity/association.service.js"></script>
+  <script src="app/entity/investment.service.js"></script>
+  <script src="app/entity/investors.service.js"></script>
+  <script src="app/entity/revenue.service.js"></script>
+
+
+</head>
+<body ng-app="personalLoans" ng-controller="MasterCtrl as master" layout="column">
+  <div class="se-pre-con" ng-if="vm.loading"></div>
+
+  <!-- Container #1 (see wireframe) -->
+  <md-toolbar layout="row" class="md-toolbar-tools md-whiteframe-6dp md-hue-2">
+    <md-button class="menu md-icon-button" ng-click="master.toggleLeftMenu()"aria-label="menu">
+      <md-icon md-svg-src="content/img/business/menu-lines.svg" aria-hidden="true"></md-icon>
+    </md-button>
+    <h1><span ng-if="vm.menu.length">{{ vm.association.name }} - </span>{{vm.toolbar.title }}</h1>
+    <span flex></span>
+    <md-icon md-svg-src="{{vm.toolbar.icon}}" aria-hidden="true"></md-icon>
+  </md-toolbar>
+
+  <!-- Container #2 -->
+  <div flex layout="row">
+    <!-- Container #3 -->
+    <div ng-include="'app/menu.html'"></div>
+
+    <!-- Container #4 -->
+    <md-content flex id="content" class="color-bkg">
+      <!-- Custom UserDetails component -->
+      <div ng-view layout-fill></div>
+    </md-content>
+  </div>
+</body>
+</html>

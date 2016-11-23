@@ -1,0 +1,39 @@
+<div ng-controller="InvestorCtrl as vm">
+
+  <md-toolbar class="md-table-toolbar md-default">
+    <div class="md-toolbar-tools md-whiteframe-1dp">
+      <h2>Grupo de Inversores</h2>
+      <span flex></span>
+      <md-button class="md-fab md-mini md-accent" aria-label="Add" ng-click="vm.showDialogCreate()">
+        <md-icon md-svg-src="content/img/business/white-plus.svg" aria-hidden="true"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-content class="md-whiteframe-4dp">
+    <md-list>
+      <md-list-item class="md-3-line" ng-click="vm.selectInvestor($index, $event)" ng-repeat="inv in vm.investors">
+        <img ng-src="{{inv.image_url}}" class="md-avatar"/>
+        <div class="md-list-item-text" layout="column">
+          <h4>{{inv.first_name}} {{inv.last_name}}</h4>
+          <p>{{inv.alias}}</p>
+        </div>
+      </md-list-item>
+    </md-list>
+    <div ng-if="vm.investors.length === 0" style="min-height: 80px;">
+      <div layout="row" layout-align="center center">
+        <p class="md-subhead">No hay inversores</p>
+      </div>
+    </div>
+  </md-content>
+  
+  <div style="visibility: hidden">
+    <div class="md-dialog-container" id="investor-dialog-create">
+      {% include "entity/members/_add_investor.html" %}
+    </div>
+  </div>
+  <div style="visibility: hidden">
+    <div class="md-dialog-container" id="investor-dialog-update">
+      {% include "entity/members/_investor_detail.html" %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+
+<md-content ng-controller="ConfigCtrl as vm" layout-padding>
+  <md-card>
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">{{vm.association.name}}</span>
+        <span class="md-subhead">
+          <ul>
+            <li><b>Fundador:</b> {{vm.association.founder_name}}</li>
+            <li><b>Fecha de creación:</b> {{vm.association.date_created | date : 'dd/MM/yyyy'}}</li>
+            <li><b>Descripción:</b> {{vm.association.description}}</li>
+          </ul>
+        </span>
+      </md-card-title-text>
+      <md-card-title-media>
+        <div class="card-media">
+          <img src="content/img/business/shared-folder.svg" class="md-media-lg card-media hide-xs" />
+        </div>
+      </md-card-title-media>
+    </md-card-title>
+    <md-card-actions layout="row" layout-align="start center">
+      <md-button class="md-raised" ng-click="vm.showDialogEdit($event)">Editar</md-button>
+    </md-card-actions>
+  </md-card>
+</md-content>
+
