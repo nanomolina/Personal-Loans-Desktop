@@ -24,8 +24,8 @@
 
   <script>
     // load and make as global lokijs-database
-    mainjs = require('electron').remote;
-    db = mainjs.shared.getGlobal('db');
+    shared = require('electron').remote.getGlobal('shared');
+    db = shared.db;
   </script>
   <!-- Main dependencies -->
   <script src="lib/angular/angular.min.js"></script>
