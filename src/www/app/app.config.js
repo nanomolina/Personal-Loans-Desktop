@@ -9,10 +9,10 @@ angular
 
 function materialTheming($mdThemingProvider) {
   $mdThemingProvider.theme('default')
-    .primaryPalette('red')
-    .accentPalette('amber')
-    .warnPalette('brown')
-    .backgroundPalette('grey');
+    .primaryPalette('blue')
+    .accentPalette('green')
+    .warnPalette('red')
+    .backgroundPalette('blue-grey');
 }
 
 function materialDatepicker($mdDateLocaleProvider) {
@@ -24,7 +24,7 @@ function materialDatepicker($mdDateLocaleProvider) {
 function routes($routeProvider) {
   $routeProvider
   .when('/', {
-    templateUrl: 'app/entity/templates/association.html'
+    templateUrl: 'app/entity/templates/console.html'
   })
   // ENTITY
   .when('/investors', {
