@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>example</title>
+  <title>PRÉSTAMOS PERSONALES</title>
   <style media="screen">
     .se-pre-con {
       position: fixed;
@@ -22,6 +22,11 @@
   <!-- Angular Material style sheet -->
   <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
 
+  <script>
+    // load and make as global lokijs-database
+    mainjs = require('electron').remote;
+    db = mainjs.shared.getGlobal('db');
+  </script>
   <!-- Main dependencies -->
   <script src="lib/angular/angular.min.js"></script>
   <script src="lib/moment/min/moment.min.js"></script>

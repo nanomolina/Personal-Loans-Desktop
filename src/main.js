@@ -1,4 +1,5 @@
 const electron = require('electron')
+const fs = require('fs');
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
@@ -6,6 +7,26 @@ const BrowserWindow = electron.BrowserWindow
 
 const path = require('path')
 const url = require('url')
+const loki = require('lokijs')
+
+
+
+function instantiateDb() {
+  var name = '/ploans.json';
+  // create database file if not exist
+  var pathDb = path.join(__dirname + name);
+  fs.open(pathDb, 'a+', (err, fd) => {});
+
+  var db = null;
+  var dbConfig = {
+    autosave: true,
+    autosaveInterval: 5000,
+    autoload: true,
+    serializationMethod: 'pretty',
+  };
+  return new loki(pathDb, dbConfig);
+
+}
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -15,12 +36,18 @@ function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 1200, height: 800})
 
+  let db = instantiateDb();
+  global.shared = {
+    'db': db
+  };
+
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'www/index.html'),
     protocol: 'file:',
     slashes: true
   }))
+
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools()
